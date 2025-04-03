@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('first paragraph contains my name', () => {
+    render(<App />);
+    
+    const paragraphs = screen.getAllByRole('paragraph');
+    expect(paragraphs[0]).toHaveTextContent('Anthony Half');
+  });
